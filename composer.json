@@ -1,0 +1,10 @@
+{
+    "name": "huguifeng/demo1",
+    "description": "a test composer",
+    "type": "project",
+    "license": "mit",
+    "minimum-stability": "dev",
+    "require": {
+    	"houdunwang/rbac":"*"
+    }
+}
