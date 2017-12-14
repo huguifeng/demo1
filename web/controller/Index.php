@@ -1,6 +1,7 @@
 <?php
 namespace web\controller;
 use core\View;
+use Gregwar\Captcha\CaptchaBuilder;
 class Index
 {	
 	public $file;
@@ -17,7 +18,16 @@ class Index
 		echo "this is index";
 	}
 	public function gg()
+	{	
+		
+		return $this->file->make('login')->with('hh', "哈哈");
+	}
+	public function code()
 	{
-		$this->file->make('login');
+		header('Content-type: image/jpeg');
+		$builder = new CaptchaBuilder;
+		$builder->build();
+		$_SESSION ['phrase'] = $builder ->getPhrase();
+        $builder->output();
 	}
 }

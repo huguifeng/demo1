@@ -1,5 +1,6 @@
 <?php
 namespace core;
+
 class View
 {	
     public $file;
@@ -7,17 +8,19 @@ class View
 
 	public function make($file)
 	{	
+
 		$this->file = 'view/'.$file.'.html';
-		echo  $this;
+		return   $this;
 
 	}
 	public function with($name, $value)
-	{
+	{	
 		$this->vars[$name] = $value;
-		echo  $this;
+		return   $this;
 	}
 	public function __toString()
-	{
+	{	
+		extract($this->vars);
 		include $this->file;
 		return "";
 	}

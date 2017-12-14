@@ -3,7 +3,8 @@ namespace core;
 class Bootstrap
 {
 	public static function run()
-	{
+	{	
+		session_start();
 		self::parseUrl();
 	}
 	public static function parseUrl()
@@ -15,11 +16,11 @@ class Bootstrap
 			$class = '\web\controller\\'.$class;
 			$action = $info[1];
 			
-			(new $class)->$action();
+			echo (new $class)->$action();
 		}else{
 			$class = '\web\controller\Index';
 			$action = 'show';
-			(new $class)->$action();
+			echo (new $class)->$action();
 		}
 	}
 }
