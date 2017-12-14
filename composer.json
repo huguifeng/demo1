@@ -6,5 +6,11 @@
     "minimum-stability": "dev",
     "require": {
     	"houdunwang/rbac":"*"
+    },
+    "autoload":{
+    	"psr-4":{
+    		"web\\":"web",
+    		"core\\":"core"
+    	}
     }
 }
